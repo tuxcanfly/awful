@@ -361,6 +361,7 @@ autorunApps =
 { 
    "gnome-settings-daemon",
    "nm-applet",
+   "conky"
 }
 if autorun then
    for _, app in pairs(autorunApps) do
