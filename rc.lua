@@ -236,7 +236,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, }, "e", function() awful.util.spawn("gvim") end),
 
     -- Thunar 
-    awful.key({ modkey, }, "t", function() awful.util.spawn("thunar") end)
+    awful.key({ modkey, }, "t", function() awful.util.spawn("thunar") end),
+
+    -- Screenshot
+    awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/Pictures/ 2>/dev/null'") end)
 )
 
 clientkeys = awful.util.table.join(
