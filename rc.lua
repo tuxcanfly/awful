@@ -327,7 +327,7 @@ awful.rules.rules = {
 -- Signal function to execute when a new client appears.
 client.add_signal("manage", function (c, startup)
     -- Add a titlebar
-    -- awful.titlebar.add(c, { modkey = modkey })
+    --awful.titlebar.add(c, { modkey = modkey })
 
     -- Enable sloppy focus
     c:add_signal("mouse::enter", function(c)
@@ -360,6 +360,7 @@ autorun = true
 autorunApps = 
 { 
    "gnome-settings-daemon",
+   "nm-applet",
 }
 if autorun then
    for _, app in pairs(autorunApps) do
