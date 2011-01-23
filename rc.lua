@@ -185,7 +185,7 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "l", function () mymainmenu:show({keygrabber=true}) end),
+    awful.key({ modkey,           }, "p", function () mymainmenu:show({keygrabber=true}) end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
@@ -239,7 +239,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, }, "t", function() awful.util.spawn("thunar") end),
 
     -- Screenshot
-    awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/Pictures/ 2>/dev/null'") end)
+    awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/Pictures/ 2>/dev/null'") end),
+
+    -- Lock Screen
+    awful.key({ modkey }, "b", function () awful.util.spawn("xlock") end)
 )
 
 clientkeys = awful.util.table.join(
@@ -365,6 +368,7 @@ autorunApps =
 { 
    "gnome-settings-daemon",
    "nm-applet",
+   --"xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
    "conky"
 }
 if autorun then
