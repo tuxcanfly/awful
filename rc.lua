@@ -242,7 +242,7 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/Pictures/ 2>/dev/null'") end),
 
     -- Lock Screen
-    awful.key({ modkey }, "b", function () awful.util.spawn("xlock") end)
+    awful.key({ modkey }, "b", function () awful.util.spawn("xlock -mode blank") end)
 )
 
 clientkeys = awful.util.table.join(
