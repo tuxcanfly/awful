@@ -14,6 +14,7 @@ require("naughty")
 require("debian.menu")
 
 user = "javed"
+background = "/home/" .. user .. "/.config/awesome/wallpaper"
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
@@ -366,9 +367,10 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 autorun = true
 autorunApps = 
 { 
+   "nitrogen --set-scaled " .. background,
    "gnome-settings-daemon",
    "nm-applet",
-   --"xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
+   "xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
    "conky"
 }
 if autorun then
