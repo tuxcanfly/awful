@@ -242,6 +242,12 @@ globalkeys = awful.util.table.join(
     -- Screenshot
     awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/Pictures/ 2>/dev/null'") end),
 
+    -- Caps Notify
+    awful.key({ }, "Caps_Lock", function () awful.util.spawn("lock_keys caps") end),
+
+    -- Num Notify
+    awful.key({ }, "Num_Lock", function () awful.util.spawn("lock_keys num") end),
+
     -- Lock Screen
     awful.key({ modkey }, "b", function () awful.util.spawn("xlock -mode blank") end)
 )
@@ -367,11 +373,13 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 autorun = true
 autorunApps = 
 { 
-   "nitrogen --set-scaled " .. background,
-   "gnome-settings-daemon",
-   "nm-applet",
-   "xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
-   "conky"
+    "xbacklight -set 40",
+    "nitrogen --set-scaled " .. background,
+    "gnome-settings-daemon",
+    "nm-applet",
+    "xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
+    "conky",
+    "xfce4-power-manager"
 }
 if autorun then
    for _, app in pairs(autorunApps) do
