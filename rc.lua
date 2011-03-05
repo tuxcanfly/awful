@@ -164,7 +164,6 @@ end
 
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
@@ -236,8 +235,8 @@ globalkeys = awful.util.table.join(
     -- Gvim 
     awful.key({ modkey, }, "e", function() awful.util.spawn("gvim") end),
 
-    -- Thunar 
-    awful.key({ modkey, }, "t", function() awful.util.spawn("thunar") end),
+    -- File manager 
+    awful.key({ modkey, }, "t", function() awful.util.spawn("pcmanfm") end),
 
     -- Screenshot
     awful.key({ }, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/Pictures/ 2>/dev/null'") end),
@@ -249,7 +248,10 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "Num_Lock", function () awful.util.spawn("lock_keys num") end),
 
     -- Lock Screen
-    awful.key({ modkey }, "b", function () awful.util.spawn("xlock -mode blank") end)
+    awful.key({ modkey }, "b", function () awful.util.spawn("xlock -mode blank") end),
+
+    -- Clementine music player
+    awful.key({ modkey }, "c", function () awful.util.spawn("clementine") end)
 )
 
 clientkeys = awful.util.table.join(
@@ -379,7 +381,8 @@ autorunApps =
     "nm-applet",
     "xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
     "conky",
-    "xfce4-power-manager"
+    "xfce4-power-manager",
+    "pidgin"
 }
 if autorun then
    for _, app in pairs(autorunApps) do
