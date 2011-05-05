@@ -18,7 +18,7 @@ background = "/home/" .. user .. "/.config/awesome/wallpaper"
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/home/".. user .. "/.config/awesome/themes/default/theme.lua")
+beautiful.init("/home/".. user .. "/.config/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -230,7 +230,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, }, "i", revelation.revelation),
 
     -- Web Browser 
-    awful.key({ modkey, }, "w", function() awful.util.spawn("google-chrome") end),
+    awful.key({ modkey, }, "w", function() awful.util.spawn("firefox") end),
 
     -- Gvim 
     awful.key({ modkey, }, "e", function() awful.util.spawn("gvim") end),
@@ -248,7 +248,7 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "Num_Lock", function () awful.util.spawn("lock_keys num") end),
 
     -- Lock Screen
-    awful.key({ modkey }, "b", function () awful.util.spawn("xlock -mode blank") end),
+    awful.key({ modkey }, "b", function () awful.util.spawn("gnome-screensaver-command --lock") end),
 
     -- Clementine music player
     awful.key({ modkey }, "c", function () awful.util.spawn("clementine") end)
@@ -375,14 +375,14 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 autorun = true
 autorunApps = 
 { 
-    "xbacklight -set 40",
-    "nitrogen --set-scaled " .. background,
+    "xbacklight -set 70",
     "gnome-settings-daemon",
     "nm-applet",
     "xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
     "conky",
-    "xfce4-power-manager",
-    "pidgin"
+    "gnome-power-manager",
+    "empathy --start-hidden",
+    "kupfer --no-splash"
 }
 if autorun then
    for _, app in pairs(autorunApps) do
