@@ -1,5 +1,5 @@
 -- Load revelation
-require("revelation") 
+require("revelation")
 
 -- Standard awesome library
 require("awful")
@@ -13,12 +13,9 @@ require("naughty")
 -- Load Debian menu entries
 require("debian.menu")
 
-user = "javed"
-background = "/home/" .. user .. "/.config/awesome/wallpaper"
-
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/home/".. user .. "/.config/awesome/themes/zenburn/theme.lua")
+beautiful.init("/home/tuxcanfly/.config/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -229,13 +226,13 @@ globalkeys = awful.util.table.join(
     -- Revelation
     awful.key({ modkey, }, "i", revelation.revelation),
 
-    -- Web Browser 
+    -- Web Browser
     awful.key({ modkey, }, "w", function() awful.util.spawn("firefox") end),
 
-    -- Gvim 
+    -- Gvim
     awful.key({ modkey, }, "e", function() awful.util.spawn("gvim") end),
 
-    -- File manager 
+    -- File manager
     awful.key({ modkey, }, "t", function() awful.util.spawn("pcmanfm") end),
 
     -- Screenshot
@@ -376,8 +373,8 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 --
 -- Autorun programs
 autorun = true
-autorunApps = 
-{ 
+autorunApps =
+{
     "xbacklight -set 70",
     "gnome-settings-daemon",
     "nm-applet",

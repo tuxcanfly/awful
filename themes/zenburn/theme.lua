@@ -8,11 +8,11 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "nitrogen --set-scaled /home/javed/.config/awesome/wallpaper" }
+theme.wallpaper_cmd = { "nitrogen --set-scaled /home/tuxcanfly/.config/awesome/wallpaper" }
 -- }}}
 
 -- {{{ Styles
-theme.font      = "sans 8"
+theme.font      = "Inconsolata 8"
 
 -- {{{ Colors
 theme.fg_normal = "#DCDCCC"
