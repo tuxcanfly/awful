@@ -227,10 +227,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, }, "i", revelation.revelation),
 
     -- Web Browser
-    awful.key({ modkey, }, "w", function() awful.util.spawn("firefox") end),
+    awful.key({ modkey, }, "w", function() awful.util.spawn("sensible-browser") end),
 
     -- Gvim
-    awful.key({ modkey, }, "e", function() awful.util.spawn("gvim") end),
+    awful.key({ modkey, }, "e", function() awful.util.spawn("urxvt -e vim") end),
 
     -- File manager
     awful.key({ modkey, }, "t", function() awful.util.spawn("pcmanfm") end),
