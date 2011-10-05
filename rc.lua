@@ -382,7 +382,8 @@ autorunApps =
     "conky",
     "gnome-power-manager",
     "empathy --start-hidden",
-    "kupfer --no-splash"
+    "kupfer --no-splash",
+    "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
 }
 if autorun then
    for _, app in pairs(autorunApps) do
