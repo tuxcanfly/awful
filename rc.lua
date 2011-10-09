@@ -9,6 +9,8 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
+-- Perceptive
+require("perceptive")
 
 -- Load Debian menu entries
 require("debian.menu")
@@ -78,6 +80,7 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- {{{ Wibox
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
+perceptive.register(mytextclock, "Hyderabad India")
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -375,7 +378,6 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 autorun = true
 autorunApps =
 {
-    "xbacklight -set 70",
     "gnome-settings-daemon",
     "nm-applet",
     "xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
@@ -383,6 +385,7 @@ autorunApps =
     "gnome-power-manager",
     "empathy --start-hidden",
     "kupfer --no-splash",
+    "xbacklight -set 40",
     "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1",
     "fortune | xargs -0 notify-send"
 }
