@@ -1,6 +1,3 @@
--- Load revelation
-require("revelation")
-
 -- Standard awesome library
 require("awful")
 require("awful.autofocus")
@@ -11,6 +8,9 @@ require("beautiful")
 require("naughty")
 -- Perceptive
 require("perceptive")
+-- Load revelation
+require("revelation")
+
 
 -- Load Debian menu entries
 require("debian.menu")
@@ -227,7 +227,8 @@ globalkeys = awful.util.table.join(
               end),
 
     -- Revelation
-    awful.key({ modkey, }, "i", revelation.revelation),
+    awful.key({ modkey }, "i", revelation),
+
 
     -- Web Browser
     awful.key({ modkey, }, "w", function() awful.util.spawn("sensible-browser") end),
