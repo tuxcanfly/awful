@@ -383,11 +383,12 @@ autorunApps =
     "gnome-power-manager",
     "empathy --start-hidden",
     "kupfer --no-splash",
-    "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1"
+    "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1",
+    "fortune | xargs -0 notify-send"
 }
 if autorun then
    for _, app in pairs(autorunApps) do
-       awful.util.spawn(app)
+       awful.util.spawn_with_shell(app)
    end
 end
 
