@@ -388,7 +388,7 @@ autorunApps =
     "kupfer --no-splash",
     "xbacklight -set 40",
     "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1",
-    "fortune | xargs -0 notify-send"
+    "fortune | xargs -0 notify-send -t 10000"
 }
 if autorun then
    for _, app in pairs(autorunApps) do
