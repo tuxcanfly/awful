@@ -23,6 +23,7 @@ beautiful.init("/home/tuxcanfly/.config/awesome/themes/zenburn/theme.lua")
 terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
+location = "Hyderabad India"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -80,7 +81,10 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 -- {{{ Wibox
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
-perceptive.register(mytextclock, "Hyderabad India")
+
+mytextlocation = widget({ type = "textbox" })
+mytextlocation.text = location
+perceptive.register(mytextlocation, location)
 
 -- Create a systray
 mysystray = widget({ type = "systray" })
@@ -155,6 +159,7 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
+        mytextlocation,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
