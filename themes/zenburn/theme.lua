@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "nitrogen --set-scaled /home/tuxcanfly/.config/awesome/wallpaper" }
+theme.wallpaper_cmd = { "nitrogen --restore" }
 -- }}}
 
 -- {{{ Styles
