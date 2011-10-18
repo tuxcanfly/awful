@@ -12,7 +12,7 @@ theme.wallpaper_cmd = { "nitrogen --restore" }
 -- }}}
 
 -- {{{ Styles
-theme.font      = "Inconsolata 8"
+theme.font      = "Ubuntu Mono 8"
 
 -- {{{ Colors
 theme.fg_normal = "#DCDCCC"
