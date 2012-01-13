@@ -239,7 +239,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, }, "w", function() awful.util.spawn("sensible-browser") end),
 
     -- Gvim
-    awful.key({ modkey, }, "e", function() awful.util.spawn("urxvt -e vim") end),
+    awful.key({ modkey, }, "e", function() awful.util.spawn("gvim") end),
 
     -- File manager
     awful.key({ modkey, }, "t", function() awful.util.spawn("pcmanfm") end),
@@ -342,9 +342,22 @@ awful.rules.rules = {
     -- Fullscreen flash window is floating
     { rule = { instance = "firefox-bin" },
       properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
+
+    -- Firefox
+    { rule = { class = "Firefox" },
+      properties = { tag = tags[2][2], maximized_horizontal = true, maximized_vertical = true } },
+
+    -- Chromium
+    { rule = { class = "Chromium-browser" },
+      properties = { tag = tags[1][1] } },
+
+    -- Comics
+    { rule = { class = "Comics.py" },
+      properties = { tag = tags[1][2] } },
+
+    -- Gwibber
+    { rule = { class = "Gwibber" },
+      properties = { tag = tags[1][2] } },
 }
 -- }}}
 
@@ -385,20 +398,17 @@ autorun = true
 autorunApps =
 {
     "gnome-settings-daemon",
-    "nm-applet",
+    --"nm-applet",
     "xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
     "conky",
     "gnome-power-manager",
-    "empathy --start-hidden",
     "kupfer --no-splash",
-    "xbacklight -set 40",
+    --"xbacklight -set 40",
     "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1",
-    "fortune | xargs -0 notify-send -t 10000"
+    "fortune | xargs -0 notify-send -t 50000"
 }
 if autorun then
    for _, app in pairs(autorunApps) do
        awful.util.spawn_with_shell(app)
    end
 end
-
-
