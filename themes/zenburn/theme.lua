@@ -8,7 +8,8 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "nitrogen --restore" }
+theme.config_dir = awful.util.getdir("config")
+theme.wallpaper_cmd = { "awsetbg " .. theme.config_dir .. "/wallpaper.jpg" }
 -- }}}
 
 -- {{{ Styles
