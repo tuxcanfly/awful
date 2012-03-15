@@ -263,12 +263,15 @@ globalkeys = awful.util.table.join(
     -- Revelation
     --awful.key({ modkey }, "i", revelation),
 
+    awful.key({ modkey, "Shift", "Control"  }, "j",   awful.tag.viewprev       ),
+    awful.key({ modkey, "Shift", "Control"  }, "k",   awful.tag.viewnext       ),
 
     -- Web Browser
     awful.key({ modkey, }, "w", function() awful.util.spawn("sensible-browser") end),
 
+    awful.key({ modkey, "Shift"  }, "w", function() awful.util.spawn("google-chrome --incognito") end),
     -- Gvim
-    awful.key({ modkey, }, "e", function() awful.util.spawn("urxvt -e vim") end),
+    awful.key({ modkey, }, "e", function() awful.util.spawn("gvim") end),
 
     -- File manager
     awful.key({ modkey, }, "t", function() awful.util.spawn("pcmanfm") end),
@@ -283,7 +286,8 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "Num_Lock", function () awful.util.spawn("lock_keys num") end),
 
     -- Lock Screen
-    awful.key({ modkey }, "b", function () awful.util.spawn("gnome-screensaver-command --lock") end),
+    --awful.key({ modkey }, "b", function () awful.util.spawn("gnome-screensaver-command --lock") end),
+    awful.key({ modkey }, "b", function () awful.util.spawn("/usr/lib/kde4/libexec/kscreenlocker") end),
 
     -- Clementine music player
     awful.key({ modkey }, "c", function () awful.util.spawn("clementine") end)
