@@ -52,12 +52,27 @@ layouts =
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
-tags = {}
-for s = 1, screen.count() do
-    -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
-end
+--tags = {}
+--for s = 1, screen.count() do
+    ---- Each screen has its own tag table.
+    --tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+--end
 -- }}}
+
+-- {{{ Tags
+tags = {
+  settings = {
+    { names  = { "www", "fun", "misc", "work" },
+      layout = { layouts[1], layouts[1], layouts[1], layouts[1] }
+    },
+    { names  = { "term", "firefox", "misc" },
+      layout = { layouts[2], layouts[1], layouts[1] }
+}}}
+
+ for s = 1, screen.count() do
+     tags[s] = awful.tag(tags.settings[s].names, s, tags.settings[s].layout)
+ end
+ -- }}}
 
 -- {{{ Menu
 -- Create a laucher widget and a main menu
@@ -234,6 +249,8 @@ globalkeys = awful.util.table.join(
     -- Revelation
     awful.key({ modkey }, "i", revelation),
 
+    awful.key({ modkey, "Shift", "Control" }, "j",   awful.tag.viewprev       ),
+    awful.key({ modkey, "Shift", "Control" }, "k",   awful.tag.viewnext       ),
 
     -- Web Browser
     awful.key({ modkey, }, "w", function() awful.util.spawn("sensible-browser") end),
@@ -257,7 +274,29 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "b", function () awful.util.spawn("gnome-screensaver-command --lock") end),
 
     -- Clementine music player
-    awful.key({ modkey }, "c", function () awful.util.spawn("clementine") end)
+    awful.key({ modkey }, "c", function () awful.util.spawn("clementine") end),
+
+    awful.key({ "Mod1", "Control" }, "Return", function ()
+                                                    startup = {
+                                                        "sensible-browser",
+                                                        "gwibber",
+                                                         "python /home/tuxcanfly/Work/pygtk-comics/comics.py",
+                                                         "gvim",
+                                                         terminal,
+                                                         terminal,
+                                                         terminal,
+                                                         "google-chrome"
+                                                    }
+                                                    awful.screen.focus(2)
+                                                    if #tags == 2 then
+                                                        awful.tag.viewonly(tags[2][1])
+                                                    else
+                                                        awful.tag.viewonly(tags[1][4])
+                                                    end
+                                                    for _, app in pairs(startup) do
+                                                        awful.util.spawn(app)
+                                                    end
+                                               end)
 )
 
 clientkeys = awful.util.table.join(
@@ -345,6 +384,10 @@ awful.rules.rules = {
 
     -- Firefox
     { rule = { class = "Firefox" },
+      properties = { tag = tags[1][2], maximized_horizontal = true, maximized_vertical = true } },
+
+    -- Chrome
+    { rule = { class = "google-chrome" },
       properties = { tag = tags[2][2], maximized_horizontal = true, maximized_vertical = true } },
 
     -- Chromium
@@ -356,8 +399,13 @@ awful.rules.rules = {
       properties = { tag = tags[1][2] } },
 
     -- Gwibber
+    --
     { rule = { class = "Gwibber" },
       properties = { tag = tags[1][2] } },
+
+    -- VirtualBox
+    { rule = { class = "VirtualBox" },
+      properties = { tag = tags[1][3] } },
 }
 -- }}}
 
@@ -398,7 +446,7 @@ autorun = true
 autorunApps =
 {
     "gnome-settings-daemon",
-    --"nm-applet",
+    "nm-applet",
     "xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
     "conky",
     "gnome-power-manager",
