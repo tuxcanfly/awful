@@ -387,7 +387,7 @@ awful.rules.rules = {
       properties = { tag = tags[1][2], maximized_horizontal = true, maximized_vertical = true } },
 
     -- Chrome
-    { rule = { class = "google-chrome" },
+    { rule = { class = "Google-chrome" },
       properties = { tag = tags[2][2], maximized_horizontal = true, maximized_vertical = true } },
 
     -- Chromium
@@ -448,7 +448,7 @@ autorunApps =
     "gnome-settings-daemon",
     "nm-applet",
     "xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
-    "conky",
+    --"conky",
     "gnome-power-manager",
     "kupfer --no-splash",
     --"xbacklight -set 40",
