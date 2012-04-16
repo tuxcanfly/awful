@@ -422,7 +422,6 @@ autorunApps =
     "gnome-settings-daemon",
     "nm-applet",
     "xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
-    "conky",
     "gnome-power-manager",
     "empathy --start-hidden",
     "kupfer --no-splash",
