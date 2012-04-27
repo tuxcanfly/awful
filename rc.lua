@@ -40,7 +40,8 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/home/tuxcanfly/.config/awesome/themes/zenburn/theme.lua")
+local configdir = awful.util.getdir("config")
+beautiful.init(configdir .. "themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
