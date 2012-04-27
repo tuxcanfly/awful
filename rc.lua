@@ -76,12 +76,27 @@ layouts =
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
-tags = {}
-for s = 1, screen.count() do
-    -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
-end
+--tags = {}
+--for s = 1, screen.count() do
+    ---- Each screen has its own tag table.
+    --tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+--end
 -- }}}
+
+-- {{{ Tags
+tags = {
+  settings = {
+    { names  = { "www", "fun", "misc", "work" },
+      layout = { layouts[1], layouts[1], layouts[1], layouts[1] }
+    },
+    { names  = { "term", "firefox", "misc" },
+      layout = { layouts[2], layouts[1], layouts[1] }
+}}}
+
+ for s = 1, screen.count() do
+     tags[s] = awful.tag(tags.settings[s].names, s, tags.settings[s].layout)
+ end
+ -- }}}
 
 -- {{{ Menu
 -- Create a laucher widget and a main menu
@@ -287,11 +302,33 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "Num_Lock", function () awful.util.spawn("lock_keys num") end),
 
     -- Lock Screen
-    --awful.key({ modkey }, "b", function () awful.util.spawn("gnome-screensaver-command --lock") end),
-    awful.key({ modkey }, "b", function () awful.util.spawn("/usr/lib/kde4/libexec/kscreenlocker") end),
+    awful.key({ modkey }, "b", function () awful.util.spawn("gnome-screensaver-command --lock") end),
+    --awful.key({ modkey }, "b", function () awful.util.spawn("/usr/lib/kde4/libexec/kscreenlocker") end),
 
     -- Clementine music player
-    awful.key({ modkey }, "c", function () awful.util.spawn("clementine") end)
+    awful.key({ modkey }, "c", function () awful.util.spawn("clementine") end),
+
+    awful.key({ "Mod1", "Control" }, "Return", function ()
+                                                    startup = {
+                                                        "sensible-browser",
+                                                        "gwibber",
+                                                         "python /home/tuxcanfly/Work/pygtk-comics/comics.py",
+                                                         "gvim",
+                                                         terminal,
+                                                         terminal,
+                                                         terminal,
+                                                         "google-chrome"
+                                                    }
+                                                    awful.screen.focus(2)
+                                                    if #tags == 2 then
+                                                        awful.tag.viewonly(tags[2][1])
+                                                    else
+                                                        awful.tag.viewonly(tags[1][4])
+                                                    end
+                                                    for _, app in pairs(startup) do
+                                                        awful.util.spawn(app)
+                                                    end
+                                               end)
 )
 
 clientkeys = awful.util.table.join(
@@ -381,9 +418,31 @@ awful.rules.rules = {
     -- Fullscreen flash window is floating
     { rule = { instance = "firefox-bin" },
       properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
+
+    -- Firefox
+    { rule = { class = "Firefox" },
+      properties = { tag = tags[1][2], maximized_horizontal = true, maximized_vertical = true } },
+
+    -- Chrome
+    { rule = { class = "Google-chrome" },
+      properties = { tag = tags[2][2], maximized_horizontal = true, maximized_vertical = true } },
+
+    -- Chromium
+    { rule = { class = "Chromium-browser" },
+      properties = { tag = tags[1][1] } },
+
+    -- Comics
+    { rule = { class = "Comics.py" },
+      properties = { tag = tags[1][2] } },
+
+    -- Gwibber
+    --
+    { rule = { class = "Gwibber" },
+      properties = { tag = tags[1][2] } },
+
+    -- VirtualBox
+    { rule = { class = "VirtualBox" },
+      properties = { tag = tags[1][3] } },
 }
 -- }}}
 
@@ -422,11 +481,9 @@ autorunApps =
 {
     "gnome-settings-daemon",
     "nm-applet",
-    "xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
+    --"xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
     "gnome-power-manager",
-    "empathy --start-hidden",
     "kupfer --no-splash",
-    "xbacklight -set 40",
     "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1",
     "fortune | xargs -0 notify-send -t 10000",
     "redshift"
@@ -436,5 +493,3 @@ if autorun then
        awful.util.spawn_with_shell(app)
    end
 end
-
-
