@@ -481,7 +481,7 @@ autorunApps =
 {
     "gnome-settings-daemon",
     "nm-applet",
-    --"xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
+    "xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
     "gnome-power-manager",
     "kupfer --no-splash",
     "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1",
