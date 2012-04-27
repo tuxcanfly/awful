@@ -301,8 +301,8 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "Num_Lock", function () awful.util.spawn("lock_keys num") end),
 
     -- Lock Screen
-    --awful.key({ modkey }, "b", function () awful.util.spawn("gnome-screensaver-command --lock") end),
-    awful.key({ modkey }, "b", function () awful.util.spawn("/usr/lib/kde4/libexec/kscreenlocker") end),
+    awful.key({ modkey }, "b", function () awful.util.spawn("gnome-screensaver-command --lock") end),
+    --awful.key({ modkey }, "b", function () awful.util.spawn("/usr/lib/kde4/libexec/kscreenlocker") end),
 
     -- Clementine music player
     awful.key({ modkey }, "c", function () awful.util.spawn("clementine") end),
@@ -480,7 +480,7 @@ autorunApps =
 {
     "gnome-settings-daemon",
     "nm-applet",
-    "xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
+    --"xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
     "gnome-power-manager",
     "kupfer --no-splash",
     "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1",
