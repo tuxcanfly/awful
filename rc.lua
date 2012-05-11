@@ -17,7 +17,8 @@ require("debian.menu")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/home/tuxcanfly/.config/awesome/themes/zenburn/theme.lua")
+local configdir = awful.util.getdir("config")
+beautiful.init(configdir .. "/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -447,8 +448,6 @@ autorunApps =
 {
     "gnome-settings-daemon",
     "nm-applet",
-    "xcompmgr -cCfF -t-5 -l-5 -r4.2 -o.55 -D6",
-    "conky",
     "gnome-power-manager",
     "kupfer --no-splash",
     --"xbacklight -set 40",
