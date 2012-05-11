@@ -285,7 +285,8 @@ globalkeys = awful.util.table.join(
     -- Web Browser
     awful.key({ modkey, }, "w", function() awful.util.spawn("sensible-browser") end),
 
-    awful.key({ modkey, "Shift"  }, "w", function() awful.util.spawn("google-chrome --incognito") end),
+    awful.key({ modkey, "Shift" }, "w", function() awful.util.spawn("google-chrome --incognito") end),
+
     -- Gvim
     awful.key({ modkey, }, "e", function() awful.util.spawn("gvim") end),
 
@@ -321,7 +322,7 @@ globalkeys = awful.util.table.join(
                                                     }
                                                     awful.screen.focus(2)
                                                     if #tags == 2 then
-                                                        awful.tag.viewonly(tags[2][1])
+                                                        awful.tag.viewonly(tags[screens][1])
                                                     else
                                                         awful.tag.viewonly(tags[1][4])
                                                     end
@@ -400,6 +401,9 @@ clientbuttons = awful.util.table.join(
 root.keys(globalkeys)
 -- }}}
 
+-- Find tag
+screens = #tags
+
 -- {{{ Rules
 awful.rules.rules = {
     -- All clients will match this rule.
@@ -425,7 +429,7 @@ awful.rules.rules = {
 
     -- Chrome
     { rule = { class = "Google-chrome" },
-      properties = { tag = tags[2][2], maximized_horizontal = true, maximized_vertical = true } },
+      properties = { tag = tags[screens][2], maximized_horizontal = true, maximized_vertical = true } },
 
     -- Chromium
     { rule = { class = "Chromium-browser" },
