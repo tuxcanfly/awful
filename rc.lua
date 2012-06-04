@@ -318,7 +318,8 @@ globalkeys = awful.util.table.join(
                                                          terminal,
                                                          terminal,
                                                          terminal,
-                                                         "google-chrome"
+                                                         "google-chrome",
+                                                         "urxvt -name irssi -e irssi"
                                                     }
                                                     awful.screen.focus(2)
                                                     if #tags == 2 then
@@ -447,6 +448,10 @@ awful.rules.rules = {
     -- VirtualBox
     { rule = { class = "VirtualBox" },
       properties = { tag = tags[1][3] } },
+
+    -- Irssi
+    { rule = { name = "irssi" },
+      properties = { tag = tags[screens][3], maximized_horizontal = true, maximized_vertical = true } },
 }
 -- }}}
 
