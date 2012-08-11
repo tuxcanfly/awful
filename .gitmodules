@@ -1,0 +1,3 @@
+[submodule "blingbling"]
+	path = blingbling
+	url = https://github.com/cedlemo/blingbling.git
