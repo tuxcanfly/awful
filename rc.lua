@@ -316,9 +316,6 @@ globalkeys = awful.util.table.join(
                                                         "sensible-browser",
                                                         "gwibber",
                                                          "python /home/tuxcanfly/Work/pygtk-comics/comics.py",
-                                                         "gvim",
-                                                         terminal,
-                                                         terminal,
                                                          terminal,
                                                          "google-chrome",
                                                          "urxvt -name irssi -e irssi"
