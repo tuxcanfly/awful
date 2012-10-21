@@ -311,9 +311,6 @@ globalkeys = awful.util.table.join(
                                                         "sensible-browser",
                                                         "gwibber",
                                                          "python /home/tuxcanfly/Work/pygtk-comics/comics.py",
-                                                         "gvim",
-                                                         terminal,
-                                                         terminal,
                                                          terminal,
                                                          "google-chrome",
                                                          "urxvt -name irssi -e irssi"
@@ -495,7 +492,7 @@ autorunApps =
     "kupfer --no-splash",
     "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1",
     "fortune | xargs -0 notify-send -t 10000",
-    "redshift",
+    "gtk-redshift",
     "conky"
 }
 if autorun then
