@@ -309,8 +309,6 @@ globalkeys = awful.util.table.join(
     awful.key({ "Mod1", "Control" }, "Return", function ()
                                                     startup = {
                                                         "sensible-browser",
-                                                        "gwibber",
-                                                         "python /home/tuxcanfly/Work/pygtk-comics/comics.py",
                                                          terminal,
                                                          "google-chrome",
                                                          "urxvt -name irssi -e irssi"
