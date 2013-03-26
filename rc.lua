@@ -41,7 +41,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.init(awful.util.getdir("config") .. "/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -530,8 +530,7 @@ autorunApps =
     "kupfer --no-splash",
     "/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1",
     "fortune | xargs -0 notify-send -t 10000",
-    "gtk-redshift",
-    "conky"
+    "gtk-redshift"
 }
 if autorun then
    for _, app in pairs(autorunApps) do
