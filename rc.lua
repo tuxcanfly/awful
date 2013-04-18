@@ -338,6 +338,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
+    awful.key({ modkey,           }, "q",      function (c) c:kill()                         end),
     awful.key({ modkey,           }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
@@ -449,6 +450,10 @@ awful.rules.rules = {
     -- Irssi
     { rule = { name = "irssi" },
       properties = { tag = tags[screens][3], maximized_horizontal = true, maximized_vertical = true } },
+
+    -- Chromium
+    { rule = { class = "Skype" },
+      properties = { tag = tags[1][2] } },
 }
 -- }}}
 
