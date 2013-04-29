@@ -528,7 +528,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 autorun = true
 autorunApps =
 {
-    "awsetbg ~/.config/awesome/wallpaper.jpg",
     "gnome-settings-daemon",
     "nm-applet",
     "gnome-power-manager",
